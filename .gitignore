@@ -26,3 +26,6 @@ npm-debug.log*
 
 # Build output (if added later)
 dist/
+
+# Internal audit/tracking docs (not for public repo)
+AUDIT.md
