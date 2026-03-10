@@ -1,6 +1,6 @@
 {
   "name": "schemalock",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "LLM output contract testing CLI - catch prompt regressions before they reach production",
   "type": "module",
   "bin": {
