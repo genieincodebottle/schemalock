@@ -7,6 +7,22 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [Unreleased]
+
+### Added
+- Google Gemini support via OpenAI-compatible endpoint
+- `GOOGLE_API_KEY` added to `.env.example` and `schemalock config list-keys`
+- **Anthropic**: updated `claude-opus-4-6` pricing ($5/$25) and `claude-haiku-4-5` pricing ($1/$5)
+- **OpenAI GPT-5 family**: `gpt-5` ($1.25/$10.00), `gpt-5-mini` ($0.25/$2.00), `gpt-5-nano` ($0.05/$0.40)
+- **OpenAI GPT-4.1 family**: `gpt-4.1` ($2.00/$8.00), `gpt-4.1-mini` ($0.40/$1.60), `gpt-4.1-nano` ($0.10/$0.40)
+- **OpenAI reasoning**: `o3` ($2.00/$8.00), `o4-mini` ($1.10/$4.40)
+- **Google Gemini 2.5**: `gemini-2.5-pro` ($1.25/$10.00), `gemini-2.5-flash` ($0.30/$2.50)
+- **Mistral**: updated `mistral-large-latest` pricing ($0.50/$1.50), added `mistral-medium-latest` ($0.40/$2.00) and `codestral-latest` ($0.30/$0.90)
+- **Groq**: `meta-llama/llama-4-scout-17b-16e-instruct` ($0.11/$0.34)
+- **Ollama**: `ollama/llama4`, `ollama/llama3.3`
+
+---
+
 ## [0.1.0] - 2026-03-10
 
 ### Added

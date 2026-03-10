@@ -10,6 +10,7 @@ const KNOWN_KEYS = [
   { key: 'OPENAI_API_KEY',     provider: 'openai',     label: 'OpenAI'     },
   { key: 'GROQ_API_KEY',       provider: 'groq',       label: 'Groq'       },
   { key: 'MISTRAL_API_KEY',    provider: 'mistral',    label: 'Mistral'    },
+  { key: 'GOOGLE_API_KEY',     provider: 'google',     label: 'Google'     },
   { key: 'TOGETHER_API_KEY',   provider: 'together',   label: 'Together AI'},
   { key: 'FIREWORKS_API_KEY',  provider: 'fireworks',  label: 'Fireworks'  },
 ];

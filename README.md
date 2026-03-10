@@ -200,22 +200,42 @@ Keys are stored in `~/.schemalock/.env` - they persist across projects and termi
 | Model | Input $/1M | Output $/1M |
 |-------|-----------|------------|
 | `claude-sonnet-4-6` | $3.00 | $15.00 |
-| `claude-opus-4-6` | $15.00 | $75.00 |
-| `claude-haiku-4-5` | $0.80 | $4.00 |
+| `claude-opus-4-6` | $5.00 | $25.00 |
+| `claude-haiku-4-5` | $1.00 | $5.00 |
 
 ### OpenAI
+**GPT-5 (latest)**
+| Model | Input $/1M | Output $/1M |
+|-------|-----------|------------|
+| `gpt-5` | $1.25 | $10.00 |
+| `gpt-5-mini` | $0.25 | $2.00 |
+| `gpt-5-nano` | $0.05 | $0.40 |
+
+**GPT-4.1**
+| Model | Input $/1M | Output $/1M |
+|-------|-----------|------------|
+| `gpt-4.1` | $2.00 | $8.00 |
+| `gpt-4.1-mini` | $0.40 | $1.60 |
+| `gpt-4.1-nano` | $0.10 | $0.40 |
+
+**GPT-4o (previous generation)**
 | Model | Input $/1M | Output $/1M |
 |-------|-----------|------------|
 | `gpt-4o` | $2.50 | $10.00 |
 | `gpt-4o-mini` | $0.15 | $0.60 |
-| `gpt-4-turbo` | $10.00 | $30.00 |
-| `o1` | $15.00 | $60.00 |
-| `o1-mini` | $3.00 | $12.00 |
+
+**o-series reasoning**
+| Model | Input $/1M | Output $/1M |
+|-------|-----------|------------|
+| `o3` | $2.00 | $8.00 |
+| `o4-mini` | $1.10 | $4.40 |
 | `o3-mini` | $1.10 | $4.40 |
+| `o1` | $15.00 | $60.00 |
 
 ### Groq (fast inference)
 | Model | Input $/1M | Output $/1M |
 |-------|-----------|------------|
+| `meta-llama/llama-4-scout-17b-16e-instruct` | $0.11 | $0.34 |
 | `llama-3.3-70b-versatile` | $0.59 | $0.79 |
 | `llama-3.1-8b-instant` | $0.05 | $0.08 |
 | `mixtral-8x7b-32768` | $0.24 | $0.24 |
@@ -224,12 +244,26 @@ Keys are stored in `~/.schemalock/.env` - they persist across projects and termi
 ### Mistral
 | Model | Input $/1M | Output $/1M |
 |-------|-----------|------------|
-| `mistral-large-latest` | $2.00 | $6.00 |
+| `mistral-large-latest` | $0.50 | $1.50 |
+| `mistral-medium-latest` | $0.40 | $2.00 |
+| `codestral-latest` | $0.30 | $0.90 |
 | `mistral-small-latest` | $0.10 | $0.30 |
+
+### Google Gemini
+| Model | Input $/1M | Output $/1M |
+|-------|-----------|------------|
+| `gemini-2.5-pro` | $1.25 | $10.00 |
+| `gemini-2.5-flash` | $0.30 | $2.50 |
+| `gemini-2.0-flash` | $0.10 | $0.40 |
+| `gemini-2.0-flash-lite` | $0.075 | $0.30 |
+
+Requires `GOOGLE_API_KEY` from [Google AI Studio](https://aistudio.google.com/app/apikey).
 
 ### Ollama (local, free)
 | Model | Notes |
 |-------|-------|
+| `ollama/llama4` | Requires `ollama serve` running locally |
+| `ollama/llama3.3` | Requires `ollama serve` running locally |
 | `ollama/llama3.2` | Requires `ollama serve` running locally |
 | `ollama/mistral` | Requires `ollama serve` running locally |
 | `ollama/phi4` | Requires `ollama serve` running locally |
