@@ -1,0 +1,55 @@
+{
+  "name": "schemalock",
+  "version": "0.1.0",
+  "description": "LLM output contract testing CLI - catch prompt regressions before they reach production",
+  "type": "module",
+  "bin": {
+    "schemalock": "bin/schemalock.js"
+  },
+  "scripts": {
+    "start": "node bin/schemalock.js",
+    "prepublishOnly": "node bin/schemalock.js --version"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.36.3",
+    "ajv": "^8.17.1",
+    "better-sqlite3": "^9.4.3",
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0",
+    "dotenv": "^16.4.7",
+    "js-yaml": "^4.1.0",
+    "openai": "^4.85.2",
+    "ora": "^8.1.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "llm",
+    "testing",
+    "contract",
+    "prompt",
+    "schema",
+    "ai",
+    "regression",
+    "claude",
+    "openai"
+  ],
+  "author": "Rajesh <genieincodebottle@gmail.com> (https://github.com/genieincodebottle)",
+  "license": "MIT",
+  "homepage": "https://github.com/genieincodebottle/schemalock#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/genieincodebottle/schemalock.git"
+  },
+  "bugs": {
+    "url": "https://github.com/genieincodebottle/schemalock/issues"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "examples/",
+    "README.md",
+    "LICENSE"
+  ]
+}

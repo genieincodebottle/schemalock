@@ -1,0 +1,44 @@
+[
+  {
+    "id": "simple-invoice",
+    "input": "Invoice from Acme Corp. Date: January 15, 2024. 2x Widget Pro @ $50.00 each. Total: $100.00 USD",
+    "expected": {
+      "total_amount": 100.00,
+      "currency": "USD",
+      "vendor_name": "Acme Corp"
+    }
+  },
+  {
+    "id": "multi-line-invoice",
+    "input": "INVOICE #4521\nVendor: TechSupplies Inc.\nDate: 2024-03-20\n\nItems:\n- Laptop Stand x1 @ $45.00\n- USB Hub x2 @ $29.99\n- Monitor Cable x3 @ $12.50\n\nSubtotal: $142.47\nTax (8%): $11.40\nTotal Due: $153.87 USD",
+    "expected": {
+      "total_amount": 153.87,
+      "currency": "USD",
+      "date": "2024-03-20",
+      "vendor_name": "TechSupplies Inc."
+    }
+  },
+  {
+    "id": "minimal-invoice",
+    "input": "Receipt - Coffee Shop - $12.50 - 02/28/2024",
+    "expected": {
+      "total_amount": 12.50
+    }
+  },
+  {
+    "id": "european-invoice",
+    "input": "Rechnung Nr. 8832\nLieferant: Berlin Tech GmbH\nDatum: 15.06.2024\nArtikel: Server License (1x) - 499,00 EUR\nMwSt 19%: 94,81 EUR\nGesamtbetrag: 593,81 EUR",
+    "expected": {
+      "total_amount": 593.81,
+      "currency": "EUR",
+      "vendor_name": "Berlin Tech GmbH"
+    }
+  },
+  {
+    "id": "missing-fields",
+    "input": "Payment received. Amount: $75. Thank you.",
+    "expected": {
+      "total_amount": 75
+    }
+  }
+]

@@ -1,0 +1,34 @@
+# Example contract - saved here for reference
+# Real contracts are stored in ~/.schemalock/contracts/
+# To use: schemalock define invoice-extractor --prompt examples/prompts/invoice-extractor.txt --cases examples/cases/invoice-cases.json
+
+name: invoice-extractor
+description: Extracts structured data from raw invoice text
+output:
+  format: json
+  must_contain:
+    - total_amount
+    - currency
+    - date
+    - vendor_name
+    - line_items
+  schema:
+    type: object
+    required:
+      - total_amount
+    properties:
+      total_amount:
+        type: number
+        minimum: 0
+      currency:
+        type: string
+      date:
+        type:
+          - string
+          - "null"
+      vendor_name:
+        type:
+          - string
+          - "null"
+      line_items:
+        type: array

@@ -1,0 +1,99 @@
+name: CI
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+
+jobs:
+  verify:
+    name: Verify (${{ matrix.node-version }}, ${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: ['18', '20', '22']
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify CLI loads and version resolves
+        run: node bin/schemalock.js --version
+
+      - name: Verify all commands are registered
+        run: node bin/schemalock.js --help
+
+      - name: Verify define --help
+        run: node bin/schemalock.js define --help
+
+      - name: Verify test --help
+        run: node bin/schemalock.js test --help
+
+      - name: Verify diff --help
+        run: node bin/schemalock.js diff --help
+
+      - name: Verify list --help
+        run: node bin/schemalock.js list --help
+
+      - name: Verify report --help
+        run: node bin/schemalock.js report --help
+
+      - name: Verify delete --help
+        run: node bin/schemalock.js delete --help
+
+      - name: Verify config --help
+        run: node bin/schemalock.js config --help
+
+      - name: Verify all source modules import cleanly
+        run: |
+          node --input-type=module <<'EOF'
+          import './src/core/runner.js';
+          import './src/core/validator.js';
+          import './src/core/store.js';
+          import './src/core/contracts.js';
+          import './src/utils/config.js';
+          import './src/utils/models.js';
+          import './src/utils/cases.js';
+          console.log('All modules imported successfully');
+          EOF
+
+      - name: Security audit
+        run: npm audit --audit-level=high
+        continue-on-error: true
+
+  lint-check:
+    name: Lint (Node 20)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check for syntax errors in all source files
+        run: |
+          for f in src/cli.js src/commands/*.js src/core/*.js src/utils/*.js bin/schemalock.js; do
+            node --check "$f" && echo "OK: $f" || exit 1
+          done
+        shell: bash
